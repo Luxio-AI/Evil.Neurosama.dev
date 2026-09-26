@@ -120,8 +120,9 @@ test('fan art uses Evil-specific recent-aware selection', () => {
   assert.match(html, /ImageRandomizer\.writeRecent/);
 });
 
-test('hero selection avoids the currently displayed image', () => {
-  assert.match(html, /ImageRandomizer\.pickDifferentIndex/);
+test('hero uses a single portrait without ENURU cycling', () => {
+  assert.doesNotMatch(html, /Nuru|ENURU/);
+  assert.match(html, /images\/evil-neuro-about\.gif/);
 });
 
 test('fan art binds a failed-image callback', () => {
